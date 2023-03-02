@@ -1,7 +1,7 @@
 from scrape.request import request_imdb, request_metacritic, request_rottentomatoes
 
 def test_request_imdb():
-    res = request_imdb("tv", "breaking bad")
+    res = request_imdb("breaking bad")
     not_found_message = "<title>404 Error - IMDb</title>"
     assert not_found_message not in res
 
