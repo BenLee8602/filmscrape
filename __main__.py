@@ -13,14 +13,15 @@ def main():
         print("error: media type (arg 1) must be \"movie\" or \"tv\"")
         return
     
-    html = request_imdb(media_type, title)
-    imdb = extract_imdb(html)
-
-    html = request_metacritic(media_type, title)
-    metacritic = extract_metacritic(html)
-
-    html = request_rottentomatoes(media_type, title)
-    rottentomatoes = extract_rottentomatoes(html)
+    all_sources = (
+        extract_imdb(request_imdb(title)),
+        extract_metacritic(request_metacritic(media_type, title)),
+        extract_rottentomatoes(media_type, request_rottentomatoes(media_type, title))
+    )
+    
+    total_count = sum(source.count for source in all_sources)
+    average_score = sum(source.get_weighted(total_count) for source in all_sources)
+    print(average_score)
 
 
 if __name__ == "__main__":
