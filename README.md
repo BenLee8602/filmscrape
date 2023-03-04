@@ -11,14 +11,19 @@ pip install -r requirements.txt
 
 ### Usage
 run the main script, with 2 args:
-- type: media type to search for, must be "movie" or "tv"
+- type: media type to search for, must be `movie` or `tv`
 - title: title of the movie or tv show
 you can pipe the output to a file, in this case "results.json"
 ```
 python . movie "fight club" > results.json
 ```
 
-results.json
+### Output
+the script outputs json containing the following info:
+- score: rating of the movie/show out of 100
+- count: number of ratings the score is based on
+
+results.json after running the above commands:
 ```json
 {
     "score": 88,
