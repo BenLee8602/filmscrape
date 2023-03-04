@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ### Usage
 run the main script, with 2 args:
 - type: media type to search for, must be `movie` or `tv`
-- title: title of the movie or tv show\
+- title: title of the movie or tv show <br />
 you can pipe the output to a file, in this case "results.json"
 ```
 python . movie "fight club" > results.json
